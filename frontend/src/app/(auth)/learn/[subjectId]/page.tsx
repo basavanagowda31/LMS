@@ -12,9 +12,9 @@ import { useParams } from 'next/navigation';
 export default function LearnPage() {
   const params = useParams();
   const subjectId = params.subjectId;
-  const [subject, setSubject] = useState(null);
+  const [subject, setSubject] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const { progress, setProgress, updateProgress, currentVideoId, setCurrentVideoId } = useVideoStore();
 

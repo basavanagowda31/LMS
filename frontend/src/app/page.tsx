@@ -8,7 +8,7 @@ import { PlayCircle, Award, BookOpen, UserCircle } from 'lucide-react';
 import AttendanceCard from '../components/AttendanceCard';
 
 export default function Home() {
-  const [subjects, setSubjects] = useState([]);
+  const [subjects, setSubjects] = useState<any[]>([]);
   const [mounted, setMounted] = useState(false);
   const { user, isAuthenticated, logout } = useAuthStore();
 

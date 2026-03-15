@@ -5,12 +5,12 @@ import { useVideoStore } from '../store/videoStore';
 import { CheckCircle, Lock, PlayCircle, Menu, X, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Sidebar({ subject }) {
+export default function Sidebar({ subject }: { subject: any }) {
   const { isOpen, toggleSidebar } = useSidebarStore();
   const { progress, currentVideoId, setCurrentVideoId } = useVideoStore();
 
-  const getProgressStatus = (videoId) => {
-    return progress.find((p) => p.videoId === videoId) || { isCompleted: false, isLocked: true };
+  const getProgressStatus = (videoId: any) => {
+    return progress.find((p: any) => p.videoId === videoId) || { isCompleted: false, isLocked: true };
   };
 
   return (
@@ -35,7 +35,7 @@ export default function Sidebar({ subject }) {
         </div>
 
         <div className="flex-1 overflow-y-auto w-full bg-[#FDFBF7]">
-          {subject?.sections?.map((section, idx) => (
+          {subject?.sections?.map((section: any, idx: number) => (
             <div key={section.id} className="border-b-[4px] border-zinc-900 last:border-0 w-full">
               <div className="bg-white p-4 sticky top-0 z-10 border-b-[2px] border-zinc-900">
                 <h3 className="text-sm font-black text-zinc-900 uppercase tracking-widest">
@@ -43,7 +43,7 @@ export default function Sidebar({ subject }) {
                 </h3>
               </div>
               <ul className="flex flex-col w-full">
-                {section.lessons?.map((lesson, lessonIdx) => {
+                {section.lessons?.map((lesson: any, lessonIdx: number) => {
                   const status = getProgressStatus(lesson.id);
                   const isCurrent = currentVideoId === lesson.id;
                   
